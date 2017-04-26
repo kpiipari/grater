@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "Scraper" do
 
-    let!(:recipe_index_array) { [{:recipe=>"Baked sweet potatoes with steak fajita filling", :recipe_url=>"./fixtures/recipes/baked_potato_steak_fajita.html"}, 
+  let!(:recipe_index_array) { [{:recipe=>"Baked sweet potatoes with steak fajita filling", :recipe_url=>"./fixtures/recipes/baked_potato_steak_fajita.html"}, 
                                 {:recipe=>"Double bean & roasted pepper chilli", :recipe_url=>"./fixtures/recipes/baked_potato_steak_fajita.html"}, 
                                 {:recipe=>"Pull-apart pork with honey chipotle", :recipe_url=>"./fixtures/recipes/pork_with_honey chipotle.html"}] }
 
@@ -17,6 +17,15 @@ describe "Scraper" do
                                     Mix together the extra 1 tbsp ketchup with the remaining chipotle and honey, and stir it through the shredded meat with some seasoning 
                                     before serving."]} }
 
-
-    it "Returns an array of hashes where each hash consists of a recipe name and a link to the recipe"
+  describe "#recipe_index_page_scraper" do
+    it "Returns an array of hashes where each hash consists of a recipe name and a link to the recipe" do
+        index_page_url = "./fixtures/index_files"
+        recipe_list = Scraper.recipe_index_page_scraper(index_page_url)
+        expect(recipe_list).to be_a Array
+        expect(recipe_list.first). to have_key(:recipe)
+        expect(recipe_list.first). to have_key(:recipe_url)
+        expect(recipe_list.length). to_eq(recipe_index_array.length)
+        expect(recipe_list). to include(recipe_index_array[0], recipe_index_array[1], recipe_index_array[2])
+    end
+  end
 end
