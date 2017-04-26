@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- saved from url=(0153)https://s0.2mdn.net/ads/richmedia/studio/pv2/60037286/20161221090841956/300x250/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=fFFS1g1iMF&t=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+         <script src="./Enabler_01_146.js"></script>
+		<title>Vitality</title>
+        <link href="./css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			body {
+                position:absolute; width:300px; height:250px;
+                overflow:hidden; margin:0px; padding:0px;
+                font-family: 'Hind', sans-serif; -webkit-font-smoothing: antialiased;
+                }
+			#banner {
+                position:absolute; width:298px; height:248px;
+                border:1px #797d83 solid; cursor:pointer; overflow:inherit;
+                top:0px; left:0px; overflow: hidden; color:#FFFFFF; line-height: 26px;
+                opacity:0
+                }
+		    #banner .banner_element {position: absolute;}  
+        </style>   
+	</head>
+	<body>
+            <div class="banner_element" id="preloader"><img src="./300x250_backup(1).jpg" alt="preload"></div>
+            <div id="banner">
+                
+                <div class="banner_element" id="banner_bg1"></div>
+                
+
+                <div class="banner_element regCopy" id="banner_text1">
+                    <span>Life insurance that gives you <br>up to <span class="boldCopy">25% off healthy food from Ocado.</span></span>
+                </div>
+                
+                <div class="banner_element" id="banner_bg2"></div>
+                
+                <div class="banner_element" id="banner_bg3"></div>
+                
+                <div class="banner_element boldCopy" id="banner_text2">
+                    <span>Ugh, fruit and veg.</span>
+                </div>
+        
+                <div class="banner_element regCopy" id="banner_text3">
+                    <span>Get something back without having
+                    <br>to claim with our healthy rewards. 
+                    </span>
+                </div>
+                
+                <div class="banner_element" id="banner_header"></div>
+                
+                <div class="banner_element cta" id="banner_ctaBg">
+                    <div class="banner_element" id="banner_cta1">
+                        <span>LEARN MORE</span>
+                    </div>
+                    <div class="banner_element" id="arrowContainer1">
+                       <div class="banner_element arrow">
+                            <img src="./arrow1(1).svg">
+                       </div>
+                    </div>
+                </div>
+                
+                <div class="banner_element smallPrint" id="banner_disclaimer1">
+                   <span id="disclaimer_click"><span class="boldCopy">T&amp;Cs</span> Min. monthly premiums, terms &amp; exclusions apply. Ocado delivery restrictions
+apply. Exclusions apply with certain products.</span>
+                </div>
+                
+                <div class="banner_element" id="banner_clickThru"></div>
+                <div class="banner_element" id="banner_logo1"></div>
+
+            </div> 
+	
+   
+    <script>
+        
+        // If true, start function. If false, listen for INIT.
+        window.onload = function() {
+          if (Enabler.isInitialized()) {
+              enablerInitHandler();
+          } else {
+              Enabler.addEventListener(studio.events.StudioEvent.INIT,
+        enablerInitHandler);
+         }
+        }
+        function politeInit(){	
+                //Load in CSS
+                console.log('polite load started');
+	            var extCSS=document.createElement('link');
+	            extCSS.setAttribute("rel", "stylesheet");
+	            extCSS.setAttribute("type", "text/css");
+	            extCSS.setAttribute("href", Enabler.getUrl("styles.css"));
+                document.getElementsByTagName("head")[0].appendChild(extCSS);              
+                Enabler.loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js', load1);
+				// To make sure that all the js files are fully loaded, use the load1 callback function method
+               function load1(){
+				Enabler.loadScript('banner.js'); 
+                 console.log('polite load completed');
+				}          
+            };
+        function enablerInitHandler() {
+                politeInit(); 
+        }
+                function bgExit(){
+                Enabler.exit("BG Exit");
+            }
+                function disclaimerExit(){
+                Enabler.exit("Disclaimer Exit");
+            }
+            document.getElementById("banner_clickThru").addEventListener("click", bgExit, false);
+            document.getElementById("disclaimer_click").addEventListener("click", disclaimerExit, false);
+    </script></body></html>

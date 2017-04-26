@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0423)https://service.foodity.com/api/widget/wrapper/7bzsSDBP9J/recipetools.html?btn_uid=b9333eb0-0f4f-407e-81dc-d9a9d784ee7c&app_id=7bzsSDBP9J&app_type=recipetools&app_resource_id=6219641&cc_r=3f315d5458924d1a22957eac17452707ab9cd8f3&session=0e300504-094f-4405-b60b-016e0067d2b7&mobile_breakpoint=821&window_width=2133&tmp_hash=cb088439-063a-4cfa-8508-d8ce8f880688#//www.bbcgoodfood.com/recipes/double-bean-roasted-pepper-chilli -->
+<html class="no-js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>window.readcubeExtension = {
+  version: '1.29',
+  id: 'mfacblegickmnfpaebakfnlbfhpoegin'
+};</script><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>
+    
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="./bf23728a.main.css">
+  
+
+  </head><body constantco-post-message="" constantco-fetch-init-settings="" constantco-watch-element-height-change="" constantco-watch-layout-class="" constantco-watch-window-resize="" marginwidth="0" marginheight="0" class="ng-scope view-desktop">
+
+    <div class="app-container" id="app-recipe-tools">
+        <!-- uiView:  --><div ui-view="" autoscroll="false" class="ng-scope"><!-- uiView:  --><div ui-view="" class="ng-scope"><div class="recipe-tool container ng-scope id internalId alt available basketName externalId" ng-class="vm.selectedStore" choose-retailer-overlay-manager="" track-event="{ action: &#39;view&#39;, label: vm.selectedStore.id || &#39;unbranded&#39; }" track-event-once-when="vm.retailerLoaded">
+    <div class="recipe-tool--header">
+        <h3>Shopping tools</h3>
+        <a href="http://www.bbcgoodfood.com/howto/guide/buy-ingredients" class="learn-more u-link" target="_top">How this works</a>
+        <a href="http://www.bbcgoodfood.com/shopping-list/my-shopping-list" target="_top" class="u-link shopping-list-link">View shopping list</a>
+    </div>
+    <div class="inner-container">
+        <div ng-hide="vm.selectedStore" class="choose-market-section no-smarket ng-hide">
+            <h4 class="show-mobile">Shop for this recipe</h4>
+            <h4 class="show-desktop">Choose a supermarket to see prices</h4>
+            <div>
+                <div class="show-desktop price"><span class="curr-icon">£</span> 00.00</div>
+                <span choose-retailer-dropdown-manager="" based-on="recipetools" class="ng-isolate-scope">
+    <button id="choose-retailer-dropdown" class="btn btn-bbcgf dropdown" ng-click="chooseRetailerDropdownOpen()" track-event-click="{ action: &#39;select-retailer-dropdown&#39;, label: &#39;dismiss&#39; }" track-event-condition="false">Choose a supermarket</button>
+</span>
+                <div class="show-mobile-inline price"><span class="curr-icon">£</span> 00.00</div>
+            </div>
+        </div>
+        <div ng-show="vm.selectedStore" class="choose-market-section yes-smarket">
+            <h4>Shop for this recipe</h4>
+            <div ng-show="vm.priceLoaded" class="">
+                <span class="total-amount"><span ng-bind="vm.totalAmount| currency : &#39;£&#39;" class="ng-binding">£1.93</span></span><span ng-show="vm.hasServes" class="">per serving</span><span ng-show="!vm.hasServes" class="ng-hide">in total</span>
+                <div ng-mouseover="showTooltip()" ng-mouseleave="hideTooltip()" ng-class="{show: vm.tooltipOn}" ng-show="vm.calculationEstimated" class="total-amount-warning ng-isolate-scope ng-hide" tooltip-timer="5000"><span ng-transclude="">
+                    <i class="icon icon-info-warning ng-scope"><span class="sr-only">warning</span></i>
+                    <span class="tooltip tooltip--top ng-scope" ng-class="{&#39;no-serves&#39;: !vm.hasServes}">
+                        <div class="tooltip__inner">
+                            Average prices have been used for ingredients that are not available at your supermarket.
+                            <a href="http://www.bbcgoodfood.com/howto/guide/buy-ingredients" target="_top">How this works</a>
+                        </div>
+                    </span>
+                </span></div>
+                <div ng-mouseover="showTooltip()" ng-mouseleave="hideTooltip()" ng-class="{show: vm.tooltipOn}" ng-show="!vm.calculationEstimated &amp;&amp; !vm.calculationComplete" class="total-amount-warning ng-isolate-scope ng-hide" tooltip-timer="5000"><span ng-transclude="">
+                    <i class="icon icon-info-warning ng-scope"><span class="sr-only">warning</span></i>
+                    <span class="tooltip tooltip--top ng-scope" ng-class="{&#39;no-serves&#39;: !vm.hasServes}">
+                        <div class="tooltip__inner">
+                            Please note prices for some ingredients are not available at your chosen supermarket.
+                            <a href="http://www.bbcgoodfood.com/howto/guide/buy-ingredients" target="_top">How this works</a>
+                        </div>
+                    </span>
+                </span></div>
+            </div>
+            <div ng-show="vm.priceLoading" class="price-loading ng-hide"><span>Calculating price...</span></div>
+            <div ng-show="vm.priceLoadingFailed" class="price-loading-failed ng-hide">
+                <span>Sorry price currently unavailable. <a href="https://service.foodity.com/api/widget/wrapper/7bzsSDBP9J/recipetools.html?btn_uid=b9333eb0-0f4f-407e-81dc-d9a9d784ee7c&amp;app_id=7bzsSDBP9J&amp;app_type=recipetools&amp;app_resource_id=6219641&amp;cc_r=3f315d5458924d1a22957eac17452707ab9cd8f3&amp;session=0e300504-094f-4405-b60b-016e0067d2b7&amp;mobile_breakpoint=821&amp;window_width=2133&amp;tmp_hash=cb088439-063a-4cfa-8508-d8ce8f880688" ng-click="getRecipePrice()">Try again</a></span>
+            </div>
+            <span>Your supermarket</span>:
+            <span class="sprite ocado retailer-ocado">Ocado</span>
+            <a ng-click="chooseStoreOverlayOpen()" class="change-smarket-link u-link" href="https://service.foodity.com/api/widget/wrapper/7bzsSDBP9J/recipetools.html?btn_uid=b9333eb0-0f4f-407e-81dc-d9a9d784ee7c&amp;app_id=7bzsSDBP9J&amp;app_type=recipetools&amp;app_resource_id=6219641&amp;cc_r=3f315d5458924d1a22957eac17452707ab9cd8f3&amp;session=0e300504-094f-4405-b60b-016e0067d2b7&amp;mobile_breakpoint=821&amp;window_width=2133&amp;tmp_hash=cb088439-063a-4cfa-8508-d8ce8f880688" ng-show="vm.selectedStore">Change</a>
+        </div>
+        <div class="shop-meal-section">
+            <div id="mealPlanDropDown" class="shop-meal-inner" ng-class="{show: vm.showMealPlan}">
+                <h4>Add ingredients to:</h4>
+                <div>
+                    <span class="btn-wrapper ng-isolate-scope" my-shopping-list-button-manager="" recipes="vm.recipeIds" based-on="recipetools" selected-store="vm.selectedStore">
+    <button id="addToShoppingListBtn" class="btn btn-bbcgf btn-purple btn-lg btn-lg--has-icon btn--my-shopping-list" ng-click="sendToShoppingListHandler()" track-event-click="{ action: (selectedStore ? selectedStore.id : &#39;unbranded&#39;) + &#39;-add-to-list&#39;, recipes: (recipes | separatedList), value: recipes.length }" track-event-condition="true">My Shopping List
+      <span class="pull-right btn__icon-wrapper"><i class="icon right border icon-notebook" ng-class="{ &#39;icon-notebook&#39;: !vm.isShoppingListModalOpen &amp;&amp; !vm.sending &amp;&amp; !vm.sendingFailed, &#39;icon-check&#39;: vm.isShoppingListModalOpen, &#39;icon-cross&#39;: vm.sendingFailed, &#39;icon-spinner&#39;: vm.sending}"></i></span>
+    </button>
+</span>
+                    <span class="btn-text-aside">to plan<span class="layout-lg-inline"> your shop</span></span>
+                </div>
+                <div>
+                    <span choose-retailer-button-manager="" selected-store="vm.selectedStore" recipes="vm.recipeIds" basket-overlay-open-fn="basketOverlayOpen()" choose-store-overlay-open-fn="chooseStoreOverlayOpenAndRedirect()" choose-store-overlay-open-no-redirect-fn="chooseStoreOverlayOpen()" class="ng-isolate-scope"><button ng-click="chooseStoreOverlayOpen()" ng-hide="selectedStore" class="btn btn-bbcgf btn-purple btn-lg btn-lg--has-icon ng-hide" ng-class="{ &#39;disabled&#39; : disableButtons }">
+    Online basket <span class="pull-right btn__icon-wrapper"><i class="icon icon-cart right border"></i></span>
+</button>
+
+<button ng-show="selectedStore &amp;&amp; selectedStore.available" class="btn btn-store  ocado" ng-class="{ &#39;btn-disabled&#39; : disableButtons }" ng-click="basketOverlayOpen()" track-event-click="{ action: selectedStore.id + &#39;-add-to-basket&#39;, recipes: (recipes|openRecipeIds|separatedList), value: (recipes|openRecipeIds).length }">
+    <span class="sprite retailer-ocado-alt">Ocado</span>basket
+</button>
+
+<span ng-show="selectedStore &amp;&amp; !selectedStore.available" ng-click="showUnavailableStoreTip()" ng-mouseover="showUnavailableStoreTip()" ng-mouseleave="hideUnavailableStoreTip()" class="ng-hide">
+    <button class="btn btn-bbcgf btn-purple btn-lg btn-lg--has-icon disabled">
+        Online basket <span class="pull-right btn__icon-wrapper"><i class="icon icon-cart right border"></i></span>
+    </button>
+    <span class="tooltip tooltip--bottom tooltip--a2b" ng-class="{show: vm.unavailableStore}">
+        <div class="tooltip__inner">
+            <span ng-show="isShoppingList" class="ng-binding ng-hide">We’re sorry but you can’t buy online with Ocado yet. But it’s coming soon.</span>
+            <span ng-show="!isShoppingList" class="ng-binding">We’ve estimated the price, but you can’t buy online with Ocado just yet. It’s coming soon.</span>
+            <a href="https://service.foodity.com/api/widget/wrapper/7bzsSDBP9J/recipetools.html?btn_uid=b9333eb0-0f4f-407e-81dc-d9a9d784ee7c&amp;app_id=7bzsSDBP9J&amp;app_type=recipetools&amp;app_resource_id=6219641&amp;cc_r=3f315d5458924d1a22957eac17452707ab9cd8f3&amp;session=0e300504-094f-4405-b60b-016e0067d2b7&amp;mobile_breakpoint=821&amp;window_width=2133&amp;tmp_hash=cb088439-063a-4cfa-8508-d8ce8f880688" ng-click="chooseStoreOverlayOpenAndCloseTooltip()">Change supermarket</a>
+        </div>
+    </span>
+</span>
+
+<span class="btn-text-aside">to buy<span class="layout-lg-inline"> online</span></span></span>
+                </div>
+                <!-- ngIf: vm.shouldDisplayAlert -->
+            </div>
+        </div>
+    </div>
+    <div class="recipe-tool--footer">
+        <a href="http://www.bbcgoodfood.com/shopping-list/my-shopping-list" target="_top" class="u-link shopping-list-link">View shopping list</a>
+    </div>
+</div></div></div>
+    </div>
+
+    <!--[if lt IE 9]>
+    <script src="https://di0rl3y8b5d1b.cloudfront.net/scripts/d5c9f3b1.ie8.js"></script>
+    <![endif]-->
+    <script src="./c61dc6eb.vendor.js"></script>
+    <script src="./578e79eb.scripts.js"></script>
+    
+
+    <!-- To be populated by cms -->
+   <script id="app-data" type="application/json">{"project-name":"BBC GoodFood API","project-url":"bbc-goodfood-api","cookie-domain":".foodity.com","a2b-url":"https:\/\/service.foodity.com\/basket","api-url":"https:\/\/service.foodity.com\/api\/v2","api-url-legacy":"https:\/\/service.foodity.com\/api","api-data-url":"https:\/\/service.foodity.com\/api\/data","processing-url":"https:\/\/service.foodity.com\/processing","app-url":"https:\/\/service.foodity.com\/api\/widget\/wrapper\/7bzsSDBP9J","app-init-event-name":"bbcgf-widget-loaded","origin":["https:\/\/data.foodity.com","http:\/\/data.foodity.com","https:\/\/service-uat.foodity.com","http:\/\/service-uat-demo.constant.co","https:\/\/service.foodity.com","http:\/\/service.foodity.com","https:\/\/apps-qa-demo.constant.co","http:\/\/apps-qa-demo.constant.co","http:\/\/apps-qa.foodity.com","http:\/\/127.0.0.1:9000","http:\/\/localhost:9000","http:\/\/localhost","http:\/\/www.bbcgoodfood.com","https:\/\/www.bbcgoodfood.com","http:\/\/bbcgoodfoodsbox1.prod.acquia-sites.com","http:\/\/bbcgoodfoodstg.prod.acquia-sites.com","http:\/\/demos.foodity.com","https:\/\/demos.foodity.com","http:\/\/bbcgoodfoodadpreview.prod.acquia-sites.com","http:\/\/bbcgoodfoodft.prod.acquia-sites.com"],"country-code":"gb","retailers":[{"id":"asda","internalId":1,"alt":"ASDA","available":true,"basketName":"trolley","externalId":"2c5098c6d1bc9cccdab5438af6cda9e830b73ef3"},{"id":"tesco","internalId":2,"alt":"Tesco","available":true,"basketName":"basket","externalId":"309535602daf5d6d4eb0a2f0dfa870091e0eebde"},{"id":"sainsburys","internalId":3,"alt":"Sainsbury's","available":true,"basketName":"trolley","externalId":"b4c046970ade9870fedca68c14dab79e3adddb3d"},{"id":"ocado","internalId":4,"alt":"Ocado","available":true,"basketName":"basket","externalId":"3f315d5458924d1a22957eac17452707ab9cd8f3"},{"id":"waitrose","internalId":5,"alt":"Waitrose","available":false,"basketName":"trolley","externalId":"fa126f368dd30c674a0c090d94c5d1fd7a96bacb"}]}</script>
+
+    <!-- Bootstap the app manually -->
+    <script>
+    angular.element(document).ready(function() {
+      angular.bootstrap(document.body, ['recipeToolsApp']);
+    });
+    </script>
+
+</body></html>

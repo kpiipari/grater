@@ -1,0 +1,1 @@
+MoatBSJsonpRequest_23986143({"c": ["moat_safe", "gs_food_misc"], "d": 5, "g": 0.17423319816589355, "confidence": "2", "callback": "MoatBSJsonpRequest_23986143", "pcode": "thetradedeskv275874568748", "href": "https://tpc.googlesyndication.com/safeframe/1-0-8/html/container.html", "r": 11002376750, "ct": 0})

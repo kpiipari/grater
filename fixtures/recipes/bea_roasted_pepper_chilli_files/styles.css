@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/* DIV setup */
+
+#type_car_stack {
+    width: 299px;
+    height: 408px;
+    top: 12px;
+    left: 0px;
+    background-image:url(images/type_car_stack_2x.png);
+    display: none;
+}
+
+#from_ford_lease {
+    width: 300px;
+    height: 35px;
+    left: 0px;
+    bottom: -37px;
+    background-image: url(images/from_ford_lease_2x.png);
+}
+
+#end {
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;
+    position:absolute;
+    display: none;
+}
+
+#logo {
+    width: 81px;
+    height: 53px;
+    right: 0px;
+    top: -2px;
+    background-image:url(images/logo_2x.png);
+}
+
+#unlearn_leasing {
+    left: 0px;
+    top: 150px;
+    width: 300px;
+    height: 31px;
+    background-image: url(images/unlearn_leasing_2x.png);
+}
+
+#cta {
+    left: 0px;
+    top: 190px;
+    width: 300px;
+    height: 22px;
+    background-image: url(images/cta_2x.png);
+}
+
+#terms_first {
+    right: 0px;
+    bottom: 0px;
+    width: 300px;
+    height: 75px;
+    background-image: url(images/terms_first_CAPS_2x.png);
+}
+
+#terms_second {
+    right: 0px;
+    bottom: 0px;
+    width: 300px;
+    height: 40px;
+    background-image: url(images/terms_second_2x.png);
+}
+
+
+/* SVG Visibility */
+
+#svg {
+    display: block;
+    position: absolute;
+}
+
+#svg_holder {
+   position: absolute;
+   width: 300px; height: 250px;
+   display: block;
+   
+}
+
+/* SVG COLOURS - Original commented - Matched to AI file with blendmode */
+ 
+.colourA {
+    fill: #e32b2b;  /*#64a3d5 */
+}
+.colourB {
+    fill: #f83131;  /*#005b9f*/ 
+}
+.colourC {
+    fill: #cf0909; /* #0089cd */
+}
+.colourD {
+    fill: #dc1515; /* #07a0db */
+}
+.colourE {
+    fill: #c60000; /* #56b8e8 */  
+}
+.colourF {
+    fill: #a90000; /* #82c8e4 */
+}
+.colourG {
+    fill: #f34545; /* #9fddf9 */
+}
