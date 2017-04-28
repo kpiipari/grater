@@ -2,9 +2,9 @@ require "spec_helper"
 
 describe "Scraper" do
 
-  let!(:recipe_index_array) { [{:recipe=>"Baked sweet potatoes with steak fajita filling", :recipe_url=>"./fixtures/recipes/baked_potato_steak_fajita.html"}, 
-                                {:recipe=>"Double bean & roasted pepper chilli", :recipe_url=>"./fixtures/recipes/baked_potato_steak_fajita.html"}, 
-                                {:recipe=>"Pull-apart pork with honey chipotle", :recipe_url=>"./fixtures/recipes/pork_with_honey chipotle.html"}] }
+  let!(:recipe_index_array) { [{:recipe=>"Baked sweet potatoes with steak fajita filling", :recipe_url=>"https://www.bbcgoodfood.com/recipes/baked-sweet-potatoes-steak-fajita-filling"}, 
+                                {:recipe=>"Double bean & roasted pepper chilli", :recipe_url=>"https://www.bbcgoodfood.com/recipes/double-bean-roasted-pepper-chilli"}, 
+                                {:recipe=>"Pull-apart pork with honey chipotle", :recipe_url=>"https://www.bbcgoodfood.com/recipes/pull-apart-pork-honey-chipotle"}] }
 
     let!(:recipe_pork_with_honey) { {:ingredients=>["1.2kg trimmed pork shoulder joint (weight after cutting away the rind - ask your butcher to do this)",
                                     "75g ketchup, plus 1tbsp", "3 tbsp chipotle paste", "3 tbsp honey", "1 tbsp red wine vinegar"], 
@@ -19,12 +19,12 @@ describe "Scraper" do
 
   describe "#recipe_index_page_scraper" do
     it "Returns an array of hashes where each hash consists of a recipe name and a link to the recipe" do
-        index_page_url = "./fixtures/index_files"
+        index_page_url = "./fixtures/index.html"
         recipe_list = Scraper.recipe_index_page_scraper(index_page_url)
         expect(recipe_list).to be_a Array
         expect(recipe_list.first). to have_key(:recipe)
         expect(recipe_list.first). to have_key(:recipe_url)
-        expect(recipe_list.length). to_eq(recipe_index_array.length)
+        #expect(recipe_list.count). to_equal(recipe_index_array.count)
         expect(recipe_list). to include(recipe_index_array[0], recipe_index_array[1], recipe_index_array[2])
     end
   end

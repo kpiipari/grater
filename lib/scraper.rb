@@ -8,8 +8,11 @@ class Scraper
 
         html = open(index_page_url)
         doc = Nokogiri::HTML(html)
-        students = doc.css("")
+        recipe_index_page = doc.css(".teaser-item__title")
 
+        a = recipe_index_page.map do |recipe|
+            {:recipe=>"#{recipe.css("span[itemprop=name]").text}", :recipe_url=>"#{recipe.css("a").attr("href")}"}
+        end
     end
 
 
