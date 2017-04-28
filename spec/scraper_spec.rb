@@ -24,8 +24,17 @@ describe "Scraper" do
         expect(recipe_list).to be_a Array
         expect(recipe_list.first). to have_key(:recipe)
         expect(recipe_list.first). to have_key(:recipe_url)
-        #expect(recipe_list.count). to_equal(recipe_index_array.count)
         expect(recipe_list). to include(recipe_index_array[0], recipe_index_array[1], recipe_index_array[2])
     end
   end
+
+  describe "#recipe_scraper" do
+    it "Returns a recipe hash that consists of ingredients array and method array" do
+      recipe_page_url = "./fixtures/recipes/pork_with_honey chipotle.html"
+      recipe_hash = Scraper.recipe_scraper(recipe_page_url)
+      expect(recipe_hash).to be_a Hash 
+      expect(recipe_hash).to match(recipe_pork_with_honey)
+    end
+  end
+
 end
