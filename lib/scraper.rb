@@ -20,10 +20,14 @@ class Scraper
         html = open(recipe_page_url)
         doc = Nokogiri::HTML(html)
         recipe_hash = {}
-        ingredients = doc.css(".ingredients-list__group > li").map {|ingredient| ingredient.text}
-        binding.pry
+        doc.css(".ingredients-list__group > li").search(".gf-tooltip").remove
+        recipe_hash = {
+                       :ingredients=>doc.css(".ingredients-list__group > li").map {|ingredient| ingredient.text},
+                       :method=>doc.css(".method__item").map {|method| method.text.gsub(/\n/, '')}
+                    }
     
     end
+    
 
 
 end
