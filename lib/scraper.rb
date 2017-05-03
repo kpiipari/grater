@@ -25,6 +25,7 @@ class Scraper
                        :ingredients=>doc.css(".ingredients-list__group > li").map {|ingredient| ingredient.text},
                        :method=>doc.css(".method__item").map {|method| method.text.gsub(/\n/, '')}
                     }
+        recipe_hash
     
     end
     
