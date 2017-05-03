@@ -11,7 +11,7 @@ class Scraper
         recipe_index_page = doc.css(".teaser-item__title")
 
         recipe_index_page.map do |recipe|
-            {:recipe=>"#{recipe.css("span[itemprop=name]").text}", :recipe_url=>"#{recipe.css("a").attr("href")}"}
+            {:recipe_name=>"#{recipe.css("span[itemprop=name]").text}", :recipe_url=>"#{recipe.css("a").attr("href")}"}
         end
     end
 
@@ -19,13 +19,13 @@ class Scraper
 
         html = open(recipe_page_url)
         doc = Nokogiri::HTML(html)
-        recipe_hash = {}
+        #recipe_details= {}
         doc.css(".ingredients-list__group > li").search(".gf-tooltip").remove
-        recipe_hash = {
+        recipe_details = {
                        :ingredients=>doc.css(".ingredients-list__group > li").map {|ingredient| ingredient.text},
                        :method=>doc.css(".method__item").map {|method| method.text.gsub(/\n/, '')}
                     }
-        recipe_hash
+        recipe_details
     
     end
     
