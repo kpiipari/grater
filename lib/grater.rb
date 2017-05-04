@@ -15,5 +15,18 @@ class Grater
         recipe_index.each {|recipe| self.new(recipe)}
     end
 
+    def recipe_details_creator(recipe_details_hash)
+        recipe_details_hash.each {|key, value| self.send(("#{key}="), value)}
+        self
+    end
+
+    def self.all
+        @@all
+    end
+
+    def print_ingredients_list
+        @ingredients.each {|ingredient| puts "* #{ingredient}"}
+    end
+
 
 end

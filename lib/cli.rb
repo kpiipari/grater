@@ -27,8 +27,8 @@ class CommandLineInterface
 
     end
 
-    def display_recipe
-
+    def print_ingredients_list
+        self.ingredients.each {|ingredient| puts "* #{ingredient}"}
     end
 
 end
