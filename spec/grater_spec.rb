@@ -65,12 +65,6 @@ rough the shredded meat with some seasoning before serving."
         end
     end
 
-    describe "#print_ingredients_list" do
-        it "prints a list of ingredients" do
-            expect(recipe.print_ingredients_list).to match(ingredients_list_print)
-        end
-    end
-
 end
 
   
