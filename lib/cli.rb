@@ -6,17 +6,17 @@ class CommandLineInterface
     URL = "./fixtures/index.html"
 
     def run
-        puts "Welcome to Grater!!"
-        puts "Please select from the following recipes:"
+        puts "Welcome to Grater! \n\n"
+        puts "Please select from the following recipes: \n\n"
         create_recipe_list
         display_recipe_list
         #user_interaction
         #create_recipe
-        #display_recipe
+        display_full_recipe
     end
 
     def user_interaction
-        input = gets.chomp
+        input = gets.chomp.to_i - 1
         input
     end
 
@@ -26,20 +26,23 @@ class CommandLineInterface
     end
 
     def display_recipe_list
-        Grater.all.each do |recipe|
-            puts "#{recipe.recipe_name}"
+        Grater.all.each_with_index do |recipe, index|
+            puts "#{index + 1}. #{recipe.recipe_name}"
         end
     end
 
     def create_recipe
-        Grater.all.each do |recipe|
-            details = Scraper.recipe_scraper(recipe.recipe_url)
-            recipe.recipe_details_creator(details)
-        end
+        user_input = user_interaction
+        recipe = Grater.all[user_input]
+        details = Scraper.recipe_scraper(recipe.recipe_url)
+        recipe.recipe_details_creator(details)
+        user_input
     end
 
-    #def print_ingredients_list
-     #   self.ingredients.each {|ingredient| puts "* #{ingredient}"}
-    #end
+    def display_full_recipe
+        recipe_index = create_recipe
+        recipe = Grater.all[recipe_index]
+        puts "#{recipe.ingredients}"
+    end
 
 end
