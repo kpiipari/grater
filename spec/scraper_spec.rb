@@ -28,7 +28,7 @@ rough the shredded meat with some seasoning before serving."
 
   describe "#recipe_scraper" do
     it "Returns a recipe hash that consists of ingredients array and method array" do
-      recipe_page_url = "./fixtures/recipes/pork_with_honey chipotle.html"
+      recipe_page_url = "./fixtures/recipes/pork_with_honey_chipotle.html"
       recipe_details = Scraper.recipe_scraper(recipe_page_url)
       expect(recipe_details).to be_a Hash 
       expect(recipe_details).to match(recipe_pork_with_honey)
