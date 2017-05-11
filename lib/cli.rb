@@ -10,9 +10,6 @@ class CommandLineInterface
 
     def run
         input = user_commands
-        puts "#{user_commands}"
-
-        
         #puts "Welcome to Grater! \n\n"
         #puts "Please select from the following recipes: \n\n"
         create_recipe_list(input)

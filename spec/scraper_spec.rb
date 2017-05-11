@@ -15,13 +15,19 @@ rough the shredded meat with some seasoning before serving."
                                     "75g ketchup, plus 1tbsp", "3 tbsp chipotle paste", "3 tbsp honey", "1 tbsp red wine vinegar"], 
                                     :method => method.gsub(/\n/, '').split('%')} }
 
+    let!(:recipe_category_array) { [{:category_name=>"7-a-day", :category_url=>"https://www.bbcgoodfood.com/recipes/collection/7-day"},
+                                    {:category_name=>"Freezable", :category_url=>"https://www.bbcgoodfood.com/recipes/collection/freezable"},
+                                    {:category_name=>"Curry", :category_url=>"https://www.bbcgoodfood.com/recipes/collection/curry"}] }
+
+    let!(:categories) { ["healthy", "family-kids", "cakes-baking", "cuisines", "dishes", "events", "everyday", "ingredients", "occasions", "quick-easy", "seasonal", "special-diets", "vegetarian"] }
+
   describe "#recipe_index_page_scraper" do
     it "Returns an array of hashes where each hash consists of a recipe name and a link to the recipe" do
         index_page_url = "./fixtures/index.html"
         recipe_list = Scraper.recipe_index_page_scraper(index_page_url)
         expect(recipe_list).to be_a Array
         expect(recipe_list.first). to have_key(:recipe_name)
-        expect(recipe_list.first). to have_key(:recipe_url)
+        expect(recipe_list.last). to have_key(:recipe_url)
         expect(recipe_list). to include(recipe_index_array[0], recipe_index_array[1], recipe_index_array[2])
     end
   end
@@ -34,5 +40,46 @@ rough the shredded meat with some seasoning before serving."
       expect(recipe_details).to match(recipe_pork_with_honey)
     end
   end
+
+  describe "#recipe_category_page_scraper" do
+    it "Returns an array of hashes where each hash consists of a recipe category and a link to the category page" do
+      base_url = "https://www.bbcgoodfood.com/recipes"
+      category = categories[0]
+      category_url = "/category/#{category}"
+      full_url = base_url + category_url
+      category_list = Scraper.recipe_category_page_scraper(full_url)
+      expect(category_list).to be_a Array
+      expect(category_list.first). to have_key(:category_name)
+      expect(category_list.last). to have_key(:category_url)
+    end
+
+    it "Returns 7-a-day from Healthy category" do
+      base_url = "https://www.bbcgoodfood.com/recipes"
+      category = categories[0]
+      category_url = "/category/#{category}"
+      full_url = base_url + category_url
+      category_list = Scraper.recipe_category_page_scraper(full_url)
+      expect(category_list). to include(recipe_category_array[0])
+    end
+
+     it "Returns Freezable from Everyday category" do
+      base_url = "https://www.bbcgoodfood.com/recipes"
+      category = categories[6]
+      category_url = "/category/#{category}"
+      full_url = base_url + category_url
+      category_list = Scraper.recipe_category_page_scraper(full_url)
+      expect(category_list). to include(recipe_category_array[1])
+    end
+
+     it "Returns Curry from Dishes category" do
+      base_url = "https://www.bbcgoodfood.com/recipes"
+      category = categories[4]
+      category_url = "/category/#{category}"
+      full_url = base_url + category_url
+      category_list = Scraper.recipe_category_page_scraper(full_url)
+      expect(category_list). to include(recipe_category_array[2])
+    end
+  end
+
 
 end
