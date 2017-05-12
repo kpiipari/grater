@@ -1,5 +1,6 @@
 require_relative "../lib/scraper.rb"
 require_relative "../lib/grater.rb"
+require_relative "../lib/category_creator.rb"
 require_relative "../config.rb"
 
 RSpec.configure do |config|

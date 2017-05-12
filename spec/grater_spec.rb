@@ -28,7 +28,7 @@ rough the shredded meat with some seasoning before serving."
                                     "* 1 tbsp red wine vinegar"}
 
     describe "#new" do
-        it "accepts a recipe hash as an argument and creates a new recipe object based on the recipe has keys and values" do
+        it "accepts a recipe hash as an argument and creates a new recipe object based on the recipe hash keys and values" do
             expect{Grater.new({:recipe_name=>"Double bean & roasted pepper chilli", :recipe_url=>"https://www.bbcgoodfood.com/recipes/double-bean-roasted-pepper-chilli"})}.to_not raise_error
             expect(recipe.recipe_name).to eq("Pull-apart pork with honey chipotle")
             expect(recipe.recipe_url).to eq("https://www.bbcgoodfood.com/recipes/pull-apart-pork-honey-chipotle")

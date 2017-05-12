@@ -24,9 +24,7 @@ class Grater
         @@all
     end
 
-    def print_ingredients_list
-        @ingredients.each {|ingredient| puts "* #{ingredient}"}
-    end
+   
 
 
 end
