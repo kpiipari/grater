@@ -9,95 +9,89 @@ class CommandLineInterface
     #URL = "https://www.bbcgoodfood.com/recipes/collection/batch-cooking"
     CATEGORY_BASE_URL = "https://www.bbcgoodfood.com/recipes/category/"
     RECIPE_BASE_URL = "https://www.bbcgoodfood.com/recipes/collection/"
-    BASE_CATEGORIES = ["healthy", "family-kids", "cakes-baking", "cuisines", "dishes", "events", "everyday", "ingredients", "occasions", "quick-easy", "seasonal", "special-diets", "vegetarian"]
+    BASE_CATEGORIES = ["healthy", "family-kids", "cakes-baking", "cuisines", 
+                        "dishes", "events", "everyday", "occasions", 
+                        "quick-easy", "seasonal", "special-diets", "vegetarian"]
 
     def run
         puts "Welcome to Grater! \n\n"
         puts "Select from the following categories: \n\n"
-        base_categories
-        category = user_interaction
-        create_category_list(category)
+        print_categories
+        print_collections(input)
         puts "\n\n"
-        puts "#{BASE_CATEGORIES[category].capitalize} has the following collections: \n\n"
-        display_category_list
-        puts "\n\n"
-        puts "Select from the above collections: \n\n"
-        input = user_interaction
-        page_url = category_url(input)
-        create_recipe_list(page_url)
-        display_recipe_list
-        recipe = user_interaction
-        display_full_recipe(recipe)
+        puts "Select a collections: \n\n"
+        print_recipes(input)
+        print_full_recipe(input)
     end
 
-    def base_categories
-        BASE_CATEGORIES.each_with_index do |category, index|
-            puts "#{index + 1}. #{category}"
-        end
-    end
-
-    def user_commands
-        input = gets.chomp
-        meal_type = input.split(" ").last
-
-        if input.include?("grater") && meal_type != "grater"
-            meal_type
-        else
-            input = gets.chomp
-        end
-    end
-
-
-    def user_interaction
+    def input
         input = gets.chomp.to_i - 1
         input
     end
 
-    def create_category_list(category)
-        category_list = Scraper.recipe_category_page_scraper(CATEGORY_BASE_URL + BASE_CATEGORIES[category])
-        CategoryCreator.category_creator(category_list)
+    def print_categories
+        BASE_CATEGORIES.each_with_index do |category, index|
+            puts "#{index + 1}. #{category}"
+        end
+        puts "\n"
     end
 
-    def display_category_list
+    def print_collections(input)
+        category_list = Scraper.recipe_category_page_scraper(CATEGORY_BASE_URL + BASE_CATEGORIES[input])
+        CategoryCreator.category_creator(category_list)
+        puts "\n"
+        puts "#{BASE_CATEGORIES[input].capitalize} has the following collections: \n\n"
         CategoryCreator.all.each_with_index do |category, index|
-            puts "#{index + 1}. #{category.category_name} #{category.category_url}"
+            puts "#{index + 1}. #{category.category_name}"
         end
     end
 
-    def category_url(input)
-        category = CategoryCreator.all[input]
-        url = category.category_url
-        url
-    end
-
-
-    def create_recipe_list(page_url)
-        recipe_list = Scraper.recipe_index_page_scraper(page_url)
+    def create_recipe_list(input)
+        collection = CategoryCreator.all[input]
+        url = collection.category_url
+        recipe_list = Scraper.recipe_index_page_scraper(url)
         Grater.recipe_creator(recipe_list)
     end
 
-    def display_recipe_list
+    def print_recipes(input)
+        create_recipe_list(input)
+        puts "\n"
         Grater.all.each_with_index do |recipe, index|
             puts "#{index + 1}. #{recipe.recipe_name}"
         end
-         puts "\n"
-         puts "I would like to cook number: "
-         puts "\n"
+        puts "\n\n"
     end
 
-    def create_recipe(user_input)
-        recipe = Grater.all[user_input]
+    def create_recipe(chosen_recipe)
+        recipe = Grater.all[chosen_recipe]
         details = Scraper.recipe_scraper(recipe.recipe_url)
         recipe.recipe_details_creator(details)
+        recipe
     end  
 
-    def display_full_recipe(chosen_recipe)
-        create_recipe(chosen_recipe)
-        recipe = Grater.all[chosen_recipe]
-        puts "\n #{recipe.recipe_name} \n\n"
+    def print_ingredients(chosen_recipe)
+        recipe = create_recipe(chosen_recipe)
+        puts "\n #{recipe.recipe_name} Ingredients: \n\n"
         recipe.ingredients.each {|i| puts "* #{i} \n"}
-        puts "\n \n"
+    end
+
+    def print_method(chosen_recipe)
+        recipe = create_recipe(chosen_recipe)
+        puts "\n #{recipe.recipe_name} Steps: \n\n"
         recipe.method.each_with_index {|step, index| puts "#{index + 1}. #{step} \n"}
+    end
+
+    def print_full_recipe(chosen_recipe)
+        recipe = create_recipe(chosen_recipe)
+        puts "\n#{recipe.recipe_name}"
+        puts "------------------------------------------\n\n"
+        puts "Ingredients"
+        puts "-----------\n\n"
+        recipe.ingredients.each {|i| puts "* #{i} \n"}
+        puts "\n\n"
+        puts "Steps"
+        puts "-----\n\n"
+        recipe.method.each_with_index {|step, index| puts "#{index + 1}. #{step} \n\n"}
     end
 
 end
