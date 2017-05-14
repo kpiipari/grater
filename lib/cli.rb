@@ -23,8 +23,8 @@ class CommandLineInterface
         puts "\n\n"
         puts "Select from the above collections: \n\n"
         input = user_interaction
-        collection = CategoryCreator.all[input][category_name]
-        create_recipe_list(collection)
+        page_url = category_url(input)
+        create_recipe_list(page_url)
         display_recipe_list
         recipe = user_interaction
         display_full_recipe(recipe)
@@ -60,12 +60,19 @@ class CommandLineInterface
 
     def display_category_list
         CategoryCreator.all.each_with_index do |category, index|
-            puts "#{index + 1}. #{category.category_name}"
+            puts "#{index + 1}. #{category.category_name} #{category.category_url}"
         end
     end
 
+    def category_url(input)
+        category = CategoryCreator.all[input]
+        url = category.category_url
+        url
+    end
+
+
     def create_recipe_list(page_url)
-        recipe_list = Scraper.recipe_index_page_scraper(RECIPE_BASE_URL + page_url)
+        recipe_list = Scraper.recipe_index_page_scraper(page_url)
         Grater.recipe_creator(recipe_list)
     end
 
