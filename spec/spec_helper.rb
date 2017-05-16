@@ -1,7 +1,7 @@
 require_relative "../lib/recipe-grater/scraper.rb"
 require_relative "../lib/recipe-grater/grater.rb"
 require_relative "../lib/recipe-grater/category_creator.rb"
-require_relative "../config.rb"
+require_relative "../config/environment.rb"
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
