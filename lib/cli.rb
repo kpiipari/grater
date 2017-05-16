@@ -5,10 +5,7 @@ require 'nokogiri'
 
 class CommandLineInterface
 
-    #URL = "./fixtures/index.html"
-    #URL = "https://www.bbcgoodfood.com/recipes/collection/batch-cooking"
     CATEGORY_BASE_URL = "https://www.bbcgoodfood.com/recipes/category/"
-    RECIPE_BASE_URL = "https://www.bbcgoodfood.com/recipes/collection/"
     BASE_CATEGORIES = ["healthy", "family-kids", "cakes-baking", "cuisines", 
                         "dishes", "events", "everyday", "occasions", 
                         "quick-easy", "seasonal", "special-diets", "vegetarian"]
