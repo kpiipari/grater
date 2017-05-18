@@ -23,7 +23,7 @@ rough the shredded meat with some seasoning before serving."
 
   describe "#recipe_index_page_scraper" do
     it "Returns an array of hashes where each hash consists of a recipe name and a link to the recipe" do
-        index_page_url = "./fixtures/index.html"
+        index_page_url = "https://www.bbcgoodfood.com/recipes/collection/family-meal"
         recipe_list = Scraper.recipe_index_page_scraper(index_page_url)
         expect(recipe_list).to be_a Array
         expect(recipe_list.first). to have_key(:recipe_name)

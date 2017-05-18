@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Kaisa Piipari"]
   spec.email         = ["kaisa.piipari@gmail.com"]
   spec.description   = %q{CLI that gets recipes from BBC goodfood}
-  spec.summary       = %q{CLLI that gets recipe collections and prints out ingredients and cooking steps to a selected recipe.}
+  spec.summary       = %q{CLI that gets recipe collections and prints out ingredients and cooking steps to a selected recipe.}
   spec.homepage      = "https://github.com/kpiipari/grater"
   spec.license       = "MIT"
 
@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
                             f.match(%r{^(test|spec|features)/})
                         end
   spec.bindir        = "bin"
-  spec.executables   = ["recipe-grater"]
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency 'bundler', '~> 1.14'

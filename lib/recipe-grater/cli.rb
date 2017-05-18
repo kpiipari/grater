@@ -1,7 +1,5 @@
-require_relative "../lib/recipe-grater/scraper.rb"
-require_relative "../lib/recipe-grater/grater.rb"
-require_relative "../lib/recipe-grater/category_creator.rb"
 require 'nokogiri'
+require 'pry'
 
 class CommandLineInterface
 
@@ -10,7 +8,7 @@ class CommandLineInterface
                         "dishes", "events", "everyday", "occasions", 
                         "quick-easy", "seasonal", "special-diets", "vegetarian"]
 
-    def run
+    def call
         puts "Welcome to Grater! \n\n"
         puts "Select from the following categories: \n\n"
         print_categories

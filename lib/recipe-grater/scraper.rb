@@ -22,7 +22,7 @@ class Scraper
         recipe_index_page = doc.css(".teaser-item__title")
 
         recipe_index_page.map do |recipe|
-            {:recipe_name=>"#{recipe.css("span[itemprop=name]").text}", :recipe_url=>"https://www.bbcgoodfood.com#{recipe.css("a").attr("href")}"}
+            {:recipe_name=>"#{recipe.css("a").text.strip}", :recipe_url=>"https://www.bbcgoodfood.com#{recipe.css("a").attr("href")}"}
         end
     end
 
