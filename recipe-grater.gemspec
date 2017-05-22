@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
                             f.match(%r{^(test|spec|features)/})
                         end
   spec.bindir        = "bin"
-  spec.executables   = [recipe-grater]
+  spec.executables   = ["recipe-grater"]
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency 'bundler', '~> 1.14'
