@@ -1,4 +1,4 @@
-#Grater
+# Grater
 
 Grater is a recipe scraper command line application that scrapes recipes from [BBC Good Food](https://www.bbcgoodfood.com/).
 
