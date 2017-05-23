@@ -1,6 +1,3 @@
-require 'nokogiri'
-require 'pry'
-
 class CommandLineInterface
 
     CATEGORY_BASE_URL = "https://www.bbcgoodfood.com/recipes/category/"

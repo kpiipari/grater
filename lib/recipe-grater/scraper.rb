@@ -1,7 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
-
 class Scraper
 
     def self.recipe_category_page_scraper(category_page_url)

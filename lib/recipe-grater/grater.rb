@@ -1,5 +1,3 @@
-require 'pry'
-
 class Grater
 
     attr_accessor :recipe_name, :recipe_url, :ingredients, :method
