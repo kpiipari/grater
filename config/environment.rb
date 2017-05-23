@@ -1,5 +1,4 @@
 require 'bundler/setup'
-Bundler.require(:default, :development)
 
 require 'nokogiri'
 require 'open-uri'
